@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const Schema  = mongoose.Schema;
 
 const diarioSchema = new Schema({
   title: {
@@ -30,5 +30,4 @@ const diarioSchema = new Schema({
 
 // Crear el modelo con el nombre "Diario" y el esquema diarioSchema
 const Diario = mongoose.model("Diario", diarioSchema, "Diario"); // Asegúrate de que el nombre de la colección sea "Diario"
-
 module.exports = Diario;
