@@ -1,16 +1,18 @@
 const jwt = require('jsonwebtoken');
 
-const verifyToken = async (req, res, next) => {
+const verifyToken = (req, res, next) => {
     const token = req.header('auth-token');
-    if(!token) return res.status(401).send("acceso denegado");
+    if (!token) {
+      return res.status(401).send("Acceso denegado: Token no proporcionado.");
+    }
 
     try {
-        const payload = jwt.verify(token, process.env.SECRET_TOKEN);
-        req.payload = payload;
-        next();
+      const payload = jwt.verify(token, process.env.SECRET_TOKEN);
+      req.payload = payload;
+      next();
     } catch (error) {
-        res.status(400).send("Token caducado o no valido");
+      return res.status(400).send("Token caducado o no válido.");
     }
-}
+};
 
-module.exports= {verifyToken}
+module.exports = { verifyToken };

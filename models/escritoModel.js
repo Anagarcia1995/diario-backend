@@ -9,7 +9,7 @@ const diarioSchema = new Schema({
     trim: true
   },
   content: {
-    type: String, // Tipo de dato String para el contenido del diario
+    type: String, 
     required: [true, "El contenido es obligatorio."],
     minLength: [1,"El titulo debe tener al menos un caracter."],
     trim: true
@@ -25,9 +25,13 @@ const diarioSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  userId: {  // Campo para asociar el escrito con un usuario
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+}
 });
 
-// Crear el modelo con el nombre "Diario" y el esquema diarioSchema
-const Diario = mongoose.model("Diario", diarioSchema, "Diario"); // Asegúrate de que el nombre de la colección sea "Diario"
+const Diario = mongoose.model("Diario", diarioSchema, "Diario"); 
 module.exports = Diario;
