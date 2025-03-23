@@ -14,7 +14,6 @@ app.use(cors());
 
 connectToDataBase();
 
-// Configurar Express para servir archivos estáticos desde la carpeta 'uploads'
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));  // Sirve los archivos estáticos desde la carpeta uploads
 
 app.use("/api", escritosRouter);

@@ -26,7 +26,7 @@ const diarioSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  userId: {  // Campo para asociar el escrito con un usuario
+  userId: { 
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
