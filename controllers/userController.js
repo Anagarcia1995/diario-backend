@@ -34,8 +34,7 @@ const createUser = async (req, res) => {
     
     try {
       const { name, lastName, email, password } = req.body;
-      const profilePicture = req.file ? req.file.path : '';  // Si se sube una foto, tomamos su ruta
-
+      const profilePicture = req.file ? req.file.path : ''; 
       const newUser = {
         name,
         lastName,
@@ -99,7 +98,7 @@ const modifyUser = async (req, res) => {
       const updateData = { ...req.body };
 
       if (req.file) {
-        updateData.profilePicture = req.file.path;  // Nueva imagen
+        updateData.profilePicture = req.file.path; 
       }
 
       const user = await UserModel.findByIdAndUpdate(idUser, updateData, { new: true });

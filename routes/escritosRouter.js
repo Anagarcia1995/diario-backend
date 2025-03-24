@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getAllEscritos, getById, deleteEscrito, addEscrito, modifyEntrada } = require('../controllers/escritosController');
-const { verifyToken } = require('../middlewares/auth');  // Importar el middleware de verificación de token
+const { verifyToken } = require('../middlewares/auth');  
 
 
 router.get('/escritos', getAllEscritos);

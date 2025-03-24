@@ -4,7 +4,7 @@ const userRouter = require("./routes/userRouter");
 const loginRouter = require("./routes/loginRouter");
 const cors = require("cors");
 const connectToDataBase = require("./db/db");
-const path = require("path");  // Asegúrate de requerir el módulo path
+const path = require("path"); 
 
 require("dotenv").config();
 
@@ -14,7 +14,7 @@ app.use(cors());
 
 connectToDataBase();
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));  // Sirve los archivos estáticos desde la carpeta uploads
+app.use("/uploads", express.static(path.join(__dirname, "uploads"))); 
 
 app.use("/api", escritosRouter);
 app.use("/api", userRouter);
